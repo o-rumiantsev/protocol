@@ -18,13 +18,13 @@ const call = {
 const data = JSON.stringify(call);
 c.sendData(data);
 
-const fs1 = fs.createReadStream('./client.js');
-const fs2 = fs.createReadStream('./server.js');
+const fs1 = fs.createReadStream('./client-files/image_2017-10-18_16-11-03.png');
+// const fs2 = fs.createReadStream('./server.js');
 
 c.createStream((err, stream) => {
-  fs1.pipe(stream);
+  // fs1.pipe(stream);
 });
 
-c.createStream((err, stream) => {
-  fs2.pipe(stream);
-});
+// c.createStream((err, stream) => {
+//   fs2.pipe(stream);
+// });
