@@ -1,0 +1,28 @@
+{
+  "name": "mhp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "mhp.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "dependencies": {
+    "metarhia-common": "^0.0.25",
+    "metasync": "^0.3.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/o-rumiantsev/protocol.git"
+  },
+  "author": "o-rumiantsev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/o-rumiantsev/protocol/issues"
+  },
+  "homepage": "https://github.com/o-rumiantsev/protocol#readme"
+}
