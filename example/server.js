@@ -1,6 +1,5 @@
 'use strict';
 
-const fs = require('fs');
 const mhp = require('../');
 
 const s = new mhp.Server();
@@ -14,6 +13,7 @@ s.on('connection', (transport) => {
     console.log('incoming stream');
     stream.on('data', (chunk) => {
       console.log('bytes recieved', chunk.length);
+
     });
   });
 });
