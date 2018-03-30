@@ -1,0 +1,5 @@
+{
+  "packetId": 1,
+  "nextPacketId": 1,
+  "maxChunkSize": 16384
+}
