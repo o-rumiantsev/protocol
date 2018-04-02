@@ -2,7 +2,7 @@
 
 const mhp = require('../');
 
-const app = new mhp.Application('test', {
+const api = {
   math: {
     add(a, b, callback) {
       const res = a + b;
@@ -14,20 +14,21 @@ const app = new mhp.Application('test', {
       callback(null, word.toUpperCase());
     }
   }
-});
+};
 
-const s = new mhp.Server([app]);
+const app = new mhp.Application('test', api);
 
-s.listen(3000, 'localhost', () => {
+const server = new mhp.Server([app]);
+
+server.listen(3000, 'localhost', () => {
   console.log('MHP srver bound');
 });
 
-s.on('connection', (transport) => {
-  transport.on('incomingStream', (stream) => {
+server.on('connection', (connection) => {
+  connection.on('incomingStream', (stream) => {
     console.log('incoming stream');
     stream.on('data', (chunk) => {
       console.log('bytes recieved', chunk.length);
-
     });
   });
 });
