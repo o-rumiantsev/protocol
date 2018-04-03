@@ -2,18 +2,33 @@
 
 const mhp = require('../');
 
-const s = new mhp.Server();
+const api = {
+  math: {
+    add(a, b, callback) {
+      const res = a + b;
+      callback(null, res);
+    }
+  },
+  words: {
+    toUpper(word, callback) {
+      callback(null, word.toUpperCase());
+    }
+  }
+};
 
-s.listen(3000, 'localhost', () => {
+const app = new mhp.Application('test', api);
+
+const server = new mhp.Server([app]);
+
+server.listen(3000, 'localhost', () => {
   console.log('MHP srver bound');
 });
 
-s.on('connection', (transport) => {
-  transport.on('incomingStream', (stream) => {
+server.on('connection', (connection) => {
+  connection.on('incomingStream', (stream) => {
     console.log('incoming stream');
     stream.on('data', (chunk) => {
       console.log('bytes recieved', chunk.length);
-
     });
   });
 });

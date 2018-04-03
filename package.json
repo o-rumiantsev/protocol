@@ -8,7 +8,8 @@
     "lib": "lib"
   },
   "dependencies": {
-    "metarhia-common": "^0.0.25",
+    "latest": "^0.2.0",
+    "metarhia-common": "^0.0.26",
     "metasync": "^0.3.20"
   },
   "devDependencies": {},

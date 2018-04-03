@@ -3,15 +3,18 @@
 const fs = require('fs');
 const mhp = require('../');
 
-const c = new mhp.Client();
+mhp.connect('test', null, 3000, 'localhost', (err, conn, app) => {
+  app.math.add(3, 5, (err, res) => {
+    console.log('Error:', err, 'Result:', res);
+  });
 
-c.connect({
-  host: 'localhost',
-  port: 3000
-});
+  app.words.toUpper('test', (err, res) => {
+    console.log('Error:', err, 'Result:', res);
+  });
 
-const fs1 = fs.createReadStream('./client.js');
+  const fs1 = fs.createReadStream('./client.js');
 
-c.createStream((err, stream) => {
-  fs1.pipe(stream);
+  conn.createStream((err, stream) => {
+    fs1.pipe(stream);
+  });
 });
